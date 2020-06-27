@@ -12,6 +12,7 @@ import json
 class BaseModel:
     """ Base Model that defines all common attributes/methods for other classes
     """
+
     def __init__(self, *args, **kwargs):
         """ init method
 
@@ -24,12 +25,12 @@ class BaseModel:
 
         if kwargs:
             for k in kwargs:
-                if k is "__class__":
+                if k == "__class__":
                     continue
                 if k in ["created_at", "updated_at"]:
-                    """datetime_val = datetime.strptime(k, '%Y-%m-%dT%H:%M:%S.%f')
-                    """
-                    setattr(self, k, kwargs[k])
+                    datetime_val = datetime.strptime(kwargs[k],
+                                                     '%Y-%m-%dT%H:%M:%S.%f')
+                    setattr(self, k, datetime_val)
                 else:
                     setattr(self, k, kwargs[k])
         else:
