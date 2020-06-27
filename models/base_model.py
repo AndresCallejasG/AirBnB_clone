@@ -12,7 +12,7 @@ import json
 class BaseModel:
     """ Base Model that defines all common attributes/methods for other classes
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """ init method
 
         Args:
@@ -21,11 +21,23 @@ class BaseModel:
             updated_at (datetime): current datetime when an instance is created
                 and it will be updated every time you change your object
         """
-        self.id = str(uuid.uuid4())
 
-        time_now = datetime.now()
-        self.created_at = time_now
-        self.updated_at = time_now
+        if kwargs:
+            for k in kwargs:
+                if k is "__class__":
+                    continue
+                if k in ["created_at", "updated_at"]:
+                    """datetime_val = datetime.strptime(k, '%Y-%m-%dT%H:%M:%S.%f')
+                    """
+                    setattr(self, k, kwargs[k])
+                else:
+                    setattr(self, k, kwargs[k])
+        else:
+            self.id = str(uuid.uuid4())
+
+            time_now = datetime.now()
+            self.created_at = time_now
+            self.updated_at = time_now
 
     def __str__(self):
         """
@@ -48,6 +60,8 @@ class BaseModel:
         my_dict.update({"__class__": "BaseModel"})
         for attr in self.__dict__:
             if attr in ["created_at", "updated_at"]:
+                """ datetime isoformat: %Y-%m-%dT%H:%M:%S.%f
+                """
                 my_dict.update({attr: datetime.isoformat(getattr(self, attr))})
             else:
                 my_dict.update({attr: getattr(self, attr)})
