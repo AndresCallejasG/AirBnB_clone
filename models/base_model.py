@@ -7,6 +7,9 @@
 from datetime import datetime
 import uuid
 import json
+import models
+
+
 
 
 class BaseModel:
@@ -39,6 +42,7 @@ class BaseModel:
             time_now = datetime.now()
             self.created_at = time_now
             self.updated_at = time_now
+            models.storage.new(self)
 
     def __str__(self):
         """
@@ -52,13 +56,14 @@ class BaseModel:
             saves changes and modify updated_at value
         """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values
             of __dict__ of the instance and its class name.
         """
         my_dict = {}
-        my_dict.update({"__class__": "BaseModel"})
+        my_dict.update({"__class__": self.__class__.__name__})
         for attr in self.__dict__:
             if attr in ["created_at", "updated_at"]:
                 """ datetime isoformat: %Y-%m-%dT%H:%M:%S.%f
