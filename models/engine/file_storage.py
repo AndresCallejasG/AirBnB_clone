@@ -44,3 +44,14 @@ class FileStorage:
                     self.__objects[k] = BaseModel(**v)
         except FileNotFoundError:
             pass
+
+    def destroy(self, key):
+        """ deletes an instance from __objects
+
+        Args:
+            key (string): <obj class name>.id
+        
+            if given key doesn’t exist in dictionary
+            it will throw KeyError
+        """
+        self.__objects.pop(key)
