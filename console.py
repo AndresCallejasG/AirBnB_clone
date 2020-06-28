@@ -9,6 +9,7 @@
 import cmd
 import models
 from models.base_model import BaseModel
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -45,8 +46,8 @@ saves it (to the JSON file) and prints the id
         """ Prints the string representation of an instance
 based on the class name and id
         """
-        argv = args.split(" ")
-        if argv[0] == "":
+        argv = shlex.split(args)
+        if len(argv) == 0:
             print("** class name missing **")
             return
         elif argv[0] not in self.classes:
@@ -64,11 +65,11 @@ based on the class name and id
             print("** no instance found **")
 
     def do_destroy(self, args):
-        """ PDeletes an instance based on the
+        """ Deletes an instance based on the
 class name and id (save the change into the JSON file).
         """
-        argv = args.split(" ")
-        if argv[0] == "":
+        argv = shlex.split(args)
+        if len(argv) == 0:
             print("** class name missing **")
             return
         elif argv[0] not in self.classes:
@@ -89,10 +90,10 @@ class name and id (save the change into the JSON file).
         """ Prints all string representation
 of all instances based or not on the class name
         """
-        argv = args.split(" ")
+        argv = shlex.split(args)
         all_obj = models.storage.all()
         my_list = []
-        if argv[0] != "":
+        if len(argv) != 0:
             if argv[0] not in self.classes:
                 print("** class doesn't exist **")
                 return
@@ -105,6 +106,34 @@ of all instances based or not on the class name
 
         print(my_list)
 
+    def do_update(self, args):
+        """Updates an instance based on the class
+name and id by adding or updating attribute (save the change into the JSON file)
+        """
+        argv = shlex.split(args)
+        if len(argv) == 0:
+            print("** class name missing **")
+            return
+        elif argv[0] not in self.classes:
+            print("** class doesn't exist **")
+            return
+        elif len(argv) < 2:
+            print("** instance id missing **")
+            return
+        elif len(argv) < 3:
+            print("** attribute name missing **")
+            return
+        elif len(argv) < 4:
+            print("** value missing **")
+            return
+        try:
+            required_key = argv[0] + "." + argv[1]
+            print(required_key)
+            required_obj = (models.storage.all())[required_key]
+            setattr(required_obj, argv[2], argv[3])
+            models.storage.save()
+        except KeyError:
+            print("** no instance found **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
