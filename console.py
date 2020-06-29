@@ -10,11 +10,12 @@ import cmd
 import models
 from models.base_model import BaseModel
 import shlex
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)'
-    classes = ["BaseModel"]
+    classes = ["BaseModel", "User"]
 
     def do_EOF(self, line):
         'exit the program'
@@ -108,7 +109,8 @@ of all instances based or not on the class name
 
     def do_update(self, args):
         """Updates an instance based on the class
-name and id by adding or updating attribute (save the change into the JSON file)
+name and id by adding or updating attribute
+(save the change into the JSON file)
         """
         argv = shlex.split(args)
         if len(argv) == 0:
@@ -134,6 +136,7 @@ name and id by adding or updating attribute (save the change into the JSON file)
             models.storage.save()
         except KeyError:
             print("** no instance found **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

@@ -10,8 +10,6 @@ import json
 import models
 
 
-
-
 class BaseModel:
     """ Base Model that defines all common attributes/methods for other classes
     """

@@ -5,6 +5,7 @@
 """
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -41,7 +42,8 @@ class FileStorage:
             with open(self.__file_path, "r") as f:
                 dict_ = json.loads(f.read())
                 for k, v in dict_.items():
-                    self.__objects[k] = BaseModel(**v)
+                    class_name = k.split(".")
+                    self.__objects[k] = eval(class_name[0])(**v)
         except FileNotFoundError:
             pass
 
@@ -50,7 +52,7 @@ class FileStorage:
 
         Args:
             key (string): <obj class name>.id
-        
+
             if given key doesn’t exist in dictionary
             it will throw KeyError
         """
