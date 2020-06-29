@@ -1,16 +1,16 @@
-#!/usr/bin/pthon3
+#!/usr/bin/python3
 
 
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
-    """class User that inherits from BaseModel
+class Review(BaseModel):
     """
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    """
+
+    place_id = ""
+    user_id = ""
+    text = ""
 
     def __init__(self, *args, **kwargs):
         """
