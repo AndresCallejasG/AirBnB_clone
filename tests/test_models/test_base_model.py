@@ -8,6 +8,7 @@
 import unittest
 from models.base_model import BaseModel
 import pep8
+from datetime import datetime
 import os.path
 from os import path
 
@@ -38,4 +39,15 @@ class TestBase_model(unittest.TestCase):
         self.assertIsNotNone(BaseModel.__str__.__doc__)
         self.assertIsNotNone(BaseModel.save.__doc__)
         self.assertIsNotNone(BaseModel.to_dict.__doc__)
+    
+    def test_init(self):
+        my_model = BaseModel()
+        my_model.name = "Holberton"
+        my_model.my_number = 89
+        self.assertIsInstance(my_model, BaseModel)
+        self.assertTrue(type(my_model.updated_at) is datetime)
+        self.assertEqual(my_model.name, "Holberton")
+    
          
+if __name__ == '__main__':
+    unittest.main()
