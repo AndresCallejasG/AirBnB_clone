@@ -7,6 +7,7 @@
 
 
 import unittest
+import models
 from models.base_model import BaseModel 
 from models.engine.file_storage import FileStorage
 from models.user import User
@@ -25,6 +26,9 @@ from os import path
 class TestFile_storage(unittest.TestCase):
     """ Test cases for base_model.py
     """
+    base = BaseModel()
+    id = base.id
+
     @classmethod
     def setUp(cls):
         """ Setting up before start all cases
@@ -50,26 +54,53 @@ class TestFile_storage(unittest.TestCase):
         self.assertIsNotNone(FileStorage.new.__doc__)
         self.assertIsNotNone(FileStorage.save.__doc__)
         self.assertIsNotNone(FileStorage.reload.__doc__)
+        self.assertIsNotNone(FileStorage.destroy.__doc__)
+
 
     def test_init(self):
         """ correct creation if instance
         """
-        storage = FileStorage()
-        storage = FileStorage
-        storage.my_number = 89
-        self.assertIsInstance(storage, FileStorage)
-        self.assertTrue(type(storage.updated_at) is datetime)
-        self.assertEqual(storage.name, "Holberton")
+        self.assertIsInstance(FileStorage._FileStorage__objects, dict)
+        self.assertIsInstance(FileStorage._FileStorage__file_path, str)
+
 
     def test_all(self):
         """ test of new
         """
-        self.assertEqual(len(self.storge.all()))
+        self.assertIsInstance(models.storage.all(), dict)
+        
 
-    def tets_save(self):
+    def test_save(self):
         """
         """
-        self.assertIsInstance(models.storage.all(), my_dict)
+        models.storage.save()
+        self.assertTrue(path.exists("file.json"))
+    
+    def test_new(self):
+        """[summary]
+        """
+        models.storage.new(self.base)
+
+    def test_reload(self):
+        """[summary]
+        """
+        pass
+    
+    def test_destroy(self):
+        """[summary]
+        """
+        pass
+
+
+
+    
+        
+
+        
+
+
+
+        
 
 if __name__ == '__main__':
     unittest.main()
