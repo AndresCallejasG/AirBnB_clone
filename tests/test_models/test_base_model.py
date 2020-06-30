@@ -18,9 +18,11 @@ class TestBase_model(unittest.TestCase):
     """ Test cases for base_model.py
     """
     @classmethod
-    def setUp(cls):
+    def setUp(self):
         """ Setting up before start all cases
         """
+        self.my_model = BaseModel()
+        self.my_model_2 = BaseModel()
 
     def tearDown(self):
         """ Executed after each test
@@ -45,12 +47,27 @@ class TestBase_model(unittest.TestCase):
     def test_init(self):
         """ correct creation if instance
         """
-        my_model = BaseModel()
-        my_model.name = "Holberton"
-        my_model.my_number = 89
-        self.assertIsInstance(my_model, BaseModel)
-        self.assertTrue(type(my_model.updated_at) is datetime)
-        self.assertEqual(my_model.name, "Holberton")
+        self.assertIsInstance(self.my_model, BaseModel)
+        self.assertTrue(type(self.my_model.updated_at) is datetime)
+
+    def test_unique_id(self):
+        """[summary]
+        """
+        self.assertNotEqual(self.my_model.id, self.my_model_2.id)
+
+    def test_aditional_attr(self):
+        """[summary]
+        """
+        self.my_model.name = "Holberton"
+        self.my_model.my_number = 89
+        self.assertEqual(self.my_model.name, "Holberton")
+
+    def test_update_time(self):
+        """[summary]
+        """
+        old_updated_time = self.my_model.updated_at
+        self.my_model.save()
+        self.assertNotEqual(old_updated_time, self.my_model.updated_at)
 
 if __name__ == '__main__':
     unittest.main()
