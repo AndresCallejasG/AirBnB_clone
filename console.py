@@ -46,6 +46,7 @@ saves it (to the JSON file) and prints the id
                 obj = eval(args)()
                 models.storage.new(obj)
                 models.storage.save()
+                print(obj.id)
             except NameError:
                 print("** class doesn't exist **")
 
@@ -67,7 +68,7 @@ based on the class name and id
         required_key = argv[0] + "." + argv[1]
         try:
             required_obj = (models.storage.all())[required_key]
-            print(required_obj.to_dict())
+            print(required_obj.__str__())
         except KeyError:
             print("** no instance found **")
 
@@ -136,7 +137,6 @@ name and id by adding or updating attribute
             return
         try:
             required_key = argv[0] + "." + argv[1]
-            print(required_key)
             required_obj = (models.storage.all())[required_key]
             setattr(required_obj, argv[2], argv[3])
             models.storage.save()
