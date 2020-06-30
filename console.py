@@ -20,7 +20,8 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)'
-    classes = ["BaseModel", "User"]
+    classes = ["BaseModel", "User", "State", "City", "Amenity",
+               "Place", "Review"]
 
     def do_EOF(self, line):
         'exit the program'
