@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 
+""" AirBnB Clone project - hbnb
+    Command interpreter to manage our AirBnB objects.
+"""
+
 
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """
+    """ Inherits from BaseModel
     """
     city_id = ""
     user_id = ""
@@ -20,6 +24,6 @@ class Place(BaseModel):
     amenity_ids = []
 
     def __init__(self, *args, **kwargs):
-        """
+        """ init method
         """
         BaseModel.__init__(self, *args, **kwargs)
