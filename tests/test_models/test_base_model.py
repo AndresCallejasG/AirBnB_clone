@@ -14,7 +14,7 @@ import os.path
 from os import path
 
 
-class TestBase_model(unittest.TestCase):
+class TestBaseModel(unittest.TestCase):
     """ Test cases for base_model.py
     """
     @classmethod

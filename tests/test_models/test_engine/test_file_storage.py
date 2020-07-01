@@ -22,7 +22,7 @@ import os
 from os import path
 
 
-class TestFile_storage(unittest.TestCase):
+class TestFileStorage(unittest.TestCase):
     """ Test cases for file_storage.py
     """
 
