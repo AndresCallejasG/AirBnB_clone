@@ -10,7 +10,7 @@ import unittest
 import models
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-from models.user import User
+from models.city import City
 from datetime import datetime
 import os
 from os import path
@@ -39,18 +39,16 @@ class TestReview(unittest.TestCase):
     def test_doc(self):
         """ Check for documentation
         """
-        self.assertIsNotNone(User.__doc__)
-        self.assertIsNotNone(User.__init__.__doc__)
+        self.assertIsNotNone(City.__doc__)
+        self.assertIsNotNone(City.__init__.__doc__)
 
     def test_init(self):
         """ Review all the class and BaseModel attributes
         """
-        my_class = User()
-        self.assertTrue(hasattr(my_class, "email"))
-        self.assertTrue(hasattr(my_class, "password"))
-        self.assertTrue(hasattr(my_class, "first_name"))
-        self.assertTrue(hasattr(my_class, "last_name"))
-        self.assertIsInstance(my_class, User)
+        my_class = City()
+        self.assertTrue(hasattr(my_class, "name"))
+        self.assertTrue(hasattr(my_class, "state_id"))
+        self.assertIsInstance(my_class, City)
         self.assertTrue(type(my_class.updated_at) is datetime)
         self.assertTrue(type(my_class.created_at) is datetime)
 
@@ -59,25 +57,21 @@ class TestReview(unittest.TestCase):
         """
         obj = {"updated_at": "2020-06-30T23:36:25.091664",
                "created_at": "2020-06-30T23:36:25.091664",
-               "__class__": "User",
+               "__class__": "City",
                "id": "77822a4e-7aa5-4bb9-871c-5d32f34080e0",
-               "email": "hbnb@holb.com",
-               "password": "12345",
-               "first_name": "Betty",
-               "last_name": "Holberton"}
-        my_class = User(**obj)
-        self.assertTrue(hasattr(my_class, "email"))
-        self.assertTrue(hasattr(my_class, "password"))
-        self.assertTrue(hasattr(my_class, "first_name"))
-        self.assertTrue(hasattr(my_class, "last_name"))
-        self.assertIsInstance(my_class, User)
+               "name": "Betty",
+               "satate_id": "77822a4e-7aa5-4bb9-871c-5d32f34080e0"}
+        my_class = City(**obj)
+        self.assertTrue(hasattr(my_class, "name"))
+        self.assertTrue(hasattr(my_class, "state_id"))
+        self.assertIsInstance(my_class, City)
         self.assertTrue(type(my_class.updated_at) is datetime)
         self.assertTrue(type(my_class.created_at) is datetime)
 
     def test_heritage(self):
         """ check it is a subclass of BaseModel
         """
-        my_class = User()
+        my_class = City()
         self.assertTrue(issubclass(type(my_class), BaseModel))
 
 
