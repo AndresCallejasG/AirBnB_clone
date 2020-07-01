@@ -50,7 +50,7 @@ class TestBase_model(unittest.TestCase):
         self.assertIsInstance(self.my_model, BaseModel)
         self.assertTrue(type(self.my_model.updated_at) is datetime)
         self.assertTrue(type(self.my_model.created_at) is datetime)
-    
+
     def test_init_kwargs(self):
         """[summary]
         """
@@ -60,8 +60,9 @@ class TestBase_model(unittest.TestCase):
                "id": "77822a4e-7aa5-4bb9-871c-5d32f34080e0"}
         new = BaseModel(**obj)
         self.assertEqual(new.id, "77822a4e-7aa5-4bb9-871c-5d32f34080e0")
-        self.assertEqual(new.created_at, datetime(2020, 6, 30, 23, 36, 25, 91664))
-        self.assertEqual(new.updated_at, datetime(2020, 6, 30, 23, 36, 25, 91664))  
+        time = datetime(2020, 6, 30, 23, 36, 25, 91664)
+        self.assertEqual(new.created_at, time)
+        self.assertEqual(new.updated_at, time)
 
     def test_unique_id(self):
         """[summary]
@@ -81,7 +82,7 @@ class TestBase_model(unittest.TestCase):
         old_updated_time = self.my_model.updated_at
         self.my_model.save()
         self.assertNotEqual(old_updated_time, self.my_model.updated_at)
-      
+
 
 if __name__ == '__main__':
     unittest.main()
