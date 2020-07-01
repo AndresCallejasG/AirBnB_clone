@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 
-""" Almost a circle project - test Cases
+""" Hbnb project - test Cases - FileStorage
 
 """
 
@@ -24,7 +24,7 @@ from os import path
 
 
 class TestFile_storage(unittest.TestCase):
-    """ Test cases for base_model.py
+    """ Test cases for file_storage.py
     """
 
     @classmethod
@@ -66,7 +66,7 @@ class TestFile_storage(unittest.TestCase):
         self.assertIsInstance(FileStorage._FileStorage__file_path, str)
 
     def test_all(self):
-        """ test of new
+        """ 
         """
         self.assertIsInstance(models.storage.all(), dict)
         with self.assertRaises(TypeError) as error:
