@@ -1,5 +1,4 @@
 #!/usr/bin/pthon3
-
 """ AirBnB Clone project - hbnb
     Command interpreter to manage our AirBnB objects.
 """
