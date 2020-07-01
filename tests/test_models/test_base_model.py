@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-
-
 """ Hbnb project - test Cases - BaseModel
 
 """
