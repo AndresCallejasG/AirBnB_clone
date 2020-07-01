@@ -12,9 +12,9 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.user import User
 from datetime import datetime
+import pep8
 import os
 from os import path
-import pep8
 
 
 class TestReview(unittest.TestCase):
@@ -79,6 +79,39 @@ class TestReview(unittest.TestCase):
         """
         my_class = User()
         self.assertTrue(issubclass(type(my_class), BaseModel))
+
+    def test_str(self):
+        """ review format: [<class name>] (<self.id>) <self.__dict__>
+        """
+        my_class = User()
+        string = "[{:s}] ({:s}) {}".format(my_class.__class__.__name__,
+                                           my_class.id, my_class.__dict__)
+        self.assertEqual(string, my_class.__str__())
+
+    def test_todict(self):
+        """ review the dictionary representation of an object
+        """
+        obj = {"updated_at": "2020-06-30T23:36:25.091664",
+               "created_at": "2020-06-30T23:36:25.091664",
+               "__class__": "User",
+               "id": "77822a4e-7aa5-4bb9-871c-5d32f34080e0",
+               "email": "hbnb@holb.com",
+               "password": "12345",
+               "first_name": "Betty",
+               "last_name": "Holberton"}
+        my_class = User(**obj)
+        my_dict = my_class.to_dict()
+        for k, v in obj.items():
+            self.assertTrue(k in my_dict)
+            self.assertEqual(my_dict[k], v)
+
+    def test_update_time(self):
+        """ check if updated_at changes
+        """
+        my_class = User()
+        old_updated_time = my_class.updated_at
+        my_class.save()
+        self.assertNotEqual(old_updated_time, my_class.updated_at)
 
 
 if __name__ == "__main__":
