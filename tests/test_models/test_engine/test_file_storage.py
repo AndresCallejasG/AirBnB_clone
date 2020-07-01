@@ -8,7 +8,7 @@
 
 import unittest
 import models
-from models.base_model import BaseModel 
+from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.user import User
 from models.state import State
@@ -20,7 +20,6 @@ import pep8
 from datetime import datetime
 import os
 from os import path
-
 
 
 class TestFile_storage(unittest.TestCase):
@@ -35,7 +34,6 @@ class TestFile_storage(unittest.TestCase):
             os.remove("file.json")
         FileStorage._FileStorage__objects = {}
         self.base = BaseModel()
-
 
     def tearDown(self):
         """ Executed after each test
@@ -66,7 +64,7 @@ class TestFile_storage(unittest.TestCase):
         self.assertIsInstance(FileStorage._FileStorage__file_path, str)
 
     def test_all(self):
-        """ 
+        """ c
         """
         self.assertIsInstance(models.storage.all(), dict)
         with self.assertRaises(TypeError) as error:
@@ -75,7 +73,7 @@ class TestFile_storage(unittest.TestCase):
         self.assertEqual(str(error.exception), msg)
 
     def test_save(self):
-        """
+        """ c
         """
         models.storage.save()
         self.assertTrue(path.exists("file.json"))
@@ -88,7 +86,7 @@ class TestFile_storage(unittest.TestCase):
         """[summary]
         """
         models.storage.new(self.base)
-        self.assertFalse(FileStorage._FileStorage__objects == {})    
+        self.assertFalse(FileStorage._FileStorage__objects == {})
 
     def test_reload(self):
         """[summary]
@@ -108,6 +106,7 @@ class TestFile_storage(unittest.TestCase):
 
         with self.assertRaises(KeyError) as error:
             models.storage.destroy("32")
+
 
 if __name__ == '__main__':
     unittest.main()
