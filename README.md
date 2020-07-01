@@ -1,5 +1,13 @@
 # AirBnB clone - The console 
-This  is the first step of the AirBnB project. A command interpreter is created in this step to manage objects for the website.
+This  is the first step of the AirBnB project. A command interpreter is created in this step to manage objects for the website. After 4 months, you will have a complete web application composed by:
+
+* A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging)
+* A website (the front-end) that shows the final product to everybody: static and dynamic
+* A database or files that store data (data = objects)
+* An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them)
+
+## Final product
+![alt text](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/8-index.png)
 
 ### Commands:
 * Create: creates an object. `Usage: create <class name>`
