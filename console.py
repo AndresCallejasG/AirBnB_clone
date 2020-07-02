@@ -151,7 +151,8 @@ name and id by adding or updating attribute
         try:
             comd = line.split(".")
             my_class = comd[0]
-            function = (comd[1].split("("))[0]
+            comd2 = comd[1].split("(")
+            function = comd2[0]
             if len(comd) >= 2:
                 if function == "all":
                     self.do_all(my_class)
@@ -162,6 +163,12 @@ name and id by adding or updating attribute
                         if type(v) is eval(my_class):
                             count += 1
                     print(count)
+                elif function == "destroy":
+                    id = (comd2[1].split(")"))[0]
+                    self.do_destroy(my_class + " " + id)
+                elif function == "show":
+                    id = (comd2[1].split(")"))[0]
+                    self.do_show(my_class + " " + id)
         except Exception:
             print("*** Unknown syntax ***")
 
