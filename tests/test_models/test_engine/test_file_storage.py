@@ -25,6 +25,14 @@ class TestFileStorage(unittest.TestCase):
     """
 
     @classmethod
+    def setUp(self):
+        """ Setting up before start all cases
+        """
+        if os.path.isfile("file.json"):
+            os.remove("file.json")
+        FileStorage._FileStorage__objects = {}
+        self.base = BaseModel()
+
     def tearDown(self):
         """ Executed after each test
         """
@@ -64,7 +72,7 @@ class TestFileStorage(unittest.TestCase):
         b1 = FileStorage()
         b1_dict = b1.all()
         self.assertEqual(type(b1_dict), dict)
-        self.assertIs(b1_dict, b1.FileStorage_objects)
+        self.assertIs(b1_dict, b1._FileStorage__objects)
 
     def test_all(self):
         """ c
@@ -74,7 +82,6 @@ class TestFileStorage(unittest.TestCase):
             models.storage.all(5)
         msg = "all() takes 1 positional argument but 2 were given"
         self.assertEqual(str(error.exception), msg)
-        self.assertTrue(FileStorage.storarage)
 
     def test_save(self):
         """ c
