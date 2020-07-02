@@ -74,6 +74,27 @@ class TestBaseModel(unittest.TestCase):
         self.my_model.my_number = 89
         self.assertEqual(self.my_model.name, "Holberton")
 
+    def test_str(self):
+        """ review format: [<class name>] (<self.id>) <self.__dict__>
+        """
+        my_class = BaseModel()
+        string = "[{:s}] ({:s}) {}".format(my_class.__class__.__name__,
+                                           my_class.id, my_class.__dict__)
+        self.assertEqual(string, my_class.__str__())
+
+    def test_todict(self):
+        """ review the dictionary representation of an object
+        """
+        obj = {"updated_at": "2020-06-30T23:36:25.091664",
+               "created_at": "2020-06-30T23:36:25.091664",
+               "__class__": "User",
+               "id": "77822a4e-7aa5-4bb9-871c-5d32f34080e0"}
+        my_class = BaseModel(**obj)
+        my_dict = my_class.to_dict()
+        for k, v in obj.items():
+            self.assertTrue(k in my_dict)
+            self.assertEqual(my_dict[k], v)
+
     def test_update_time(self):
         """[summary]
         """
