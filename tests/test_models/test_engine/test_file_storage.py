@@ -23,15 +23,7 @@ from os import path
 class TestFileStorage(unittest.TestCase):
     """ Test cases for file_storage.py
     """
-
-    @classmethod
-    def setUp(self):
-        """ Setting up before start all cases
-        """
-        if os.path.isfile("file.json"):
-            os.remove("file.json")
-        FileStorage._FileStorage__objects = {}
-        self.base = BaseModel()
+    base = BaseModel()
 
     def tearDown(self):
         """ Executed after each test

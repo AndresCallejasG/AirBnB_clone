@@ -87,7 +87,7 @@ class TestBaseModel(unittest.TestCase):
         """
         obj = {"updated_at": "2020-06-30T23:36:25.091664",
                "created_at": "2020-06-30T23:36:25.091664",
-               "__class__": "User",
+               "__class__": "BaseModel",
                "id": "77822a4e-7aa5-4bb9-871c-5d32f34080e0"}
         my_class = BaseModel(**obj)
         my_dict = my_class.to_dict()
