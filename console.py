@@ -145,6 +145,26 @@ name and id by adding or updating attribute
         except KeyError:
             print("** no instance found **")
 
+    def default(self, line):
+        """ advanced task
+        """
+        try:
+            comd = line.split(".")
+            my_class = comd[0]
+            function = (comd[1].split("("))[0]
+            if len(comd) >= 2:
+                if function == "all":
+                    self.do_all(my_class)
+                elif function == "count":
+                    objects = models.storage.all()
+                    count = 0
+                    for k, v in objects.items():
+                        if type(v) is eval(my_class):
+                            count += 1
+                    print(count)
+        except Exception:
+            print("*** Unknown syntax ***")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
