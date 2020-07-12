@@ -1,0 +1,26 @@
+.places{
+    display: flex;
+    flex-direction: column;
+}
+
+.places_grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.place_item{
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+}
+
+.places .places_title{
+    font-size: 30px;
+}
+
+.places .place_name{
+    text-align: center;
+}
