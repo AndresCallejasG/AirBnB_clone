@@ -11,4 +11,6 @@ body {
     margin-bottom: 30px;
     margin-right: auto;
     margin-left: auto;
+    display: flex;
+    flex-direction: column;
 }
