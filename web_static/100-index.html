@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AirBnB clone</title>
+    <link rel="stylesheet" href="styles/4-common.css">
+    <link rel="stylesheet" href="styles/3-header.css">
+    <link rel="stylesheet" href="styles/3-footer.css">
+    <link rel="stylesheet" href="styles/6-filters.css">
+    <link rel="stylesheet" href="styles/100-places.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/icon.png" type="image/png" >
+</head>
+<body>
+    <header></header>
+    <div class="container">
+        <section class="filters">
+            <div class="f_list locations">
+                <h3>States</h3>
+                <h4>California, Arizona...</h4>
+                <ul class="popover">
+                    <li><h2>Arizona:</h2>
+                        <ul>
+                            <li>Phoenix</li>
+                            <li>Tucson</li>
+                        </ul>
+                    </li>
+                    <li><h2>California:</h2>
+                        <ul>
+                            <li>San Francisco</li>
+                            <li>Los Angeles</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="f_list amenities">
+                <h3>Amenities</h3>
+                <h4>Internet, Kitchen...</h4>
+                <ul class="popover">
+                    <li>Internet</li>
+                    <li>TV</li>
+                    <li>Kitchen</li>
+                    <li>Iron</li>
+                </ul>
+            </div>
+            <div class="f_btn">
+                <button class="search_btn">Search</button>
+            </div>
+        </section>
+        <section class="places">
+            <div class="places_title">
+                <h1>Places</h1>
+            </div>
+            <div class="places_grid">
+                <article class="place_item">
+                    <div class = place_name>
+                        <h2>My Home</h2>
+                        <div class="price_by_night">
+                            <p>$60</p> 
+                        </div>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">
+                            <div class="info_icon"></div>
+                            <p>4 Guests</p>
+                        </div>
+                        <div class="number_rooms">
+                            <div class="info_icon"></div>
+                            <p>3 Bedrooms</p>
+                        </div>
+                        <div class="number_bathrooms">
+                            <div class="info_icon"></div>
+                            <p>3 Bathrooms</p>
+                        </div>   
+                    </div>                    
+                    <div class="user">
+                        <p><b>Owner:</b> Tom Smith</p>
+                    </div>
+                    <div class="description">
+                        <p>Our home definitely fits the bill while supplying you with all the essentials in an uncluttered, relaxing environment. Relax in the lovely landscaped backyard, by the crystal clear pool and enjoy the birds singing or stargaze at night in a yard free of light pollution. </p>
+                    </div>
+                    <div class="amenities_container">
+                        <h2>Amenities</h2>
+                        <ul>
+                            <li>
+                                <div class="amenities_grid">
+                                    <div class="icon_amenities ameni_tv"></div>
+                                    <p>TV</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="amenities_grid">
+                                    <div class="icon_amenities ameni_wifi"></div>
+                                    <p>Wifi</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="amenities_grid">
+                                    <div class="icon_amenities ameni_pet"></div>
+                                    <p>Pet Friendly</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reviews">
+                        <h2>2 Reviews</h2>
+                        <ul>
+                            <li>
+                                <div>
+                                    <h3 class="review_info">From Morgen Dylan the 27th July 2018</h3>
+                                    <p class="review_text"> Check in was easy and very flexible- we got in wayyy
+                                         earlier than expected and the hosts were kind enough to accommodate 
+                                         and let us come early. </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3 class="review_info">From Courtney Adams the 7th January 2017</h3>
+                                    <p class="review_text"> A host is really nice and the place is stylish and cozy. Thanks!</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="place_item">
+                    <div class = place_name>
+                        <h2>Tiny House</h2>
+                        <div class="price_by_night">
+                            <p>$45</p> 
+                        </div>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">
+                            <div class="info_icon"></div>
+                            <p>2 Guests</p>
+                        </div>
+                        <div class="number_rooms">
+                            <div class="info_icon"></div>
+                            <p>1 Bedroom</p>
+                        </div>
+                        <div class="number_bathrooms">
+                            <div class="info_icon"></div>
+                            <p>1 Bathroom</p>
+                        </div>   
+                    </div>
+                    <div class="user">
+                        <p><b>Owner:</b> James Roberts</p>
+                    </div>
+                    <div class="description">
+                        <p> The studio was built in February of 2019, it is 8 feet wide and approximately 16 feet long. 
+                            It features a foam mattress, a mini-fridge furnished with water bottles upon arrival, 
+                            a coffee machine with some local beans, a hot plate, toaster oven, Wi-Fi and 40” Smart 
+                            Roku TV with NetFlix access  (login with your Hulu or Amazon account). Additional amenities include soap, 
+                            shampoo/conditioner, dishes, pots and pans, towels and hair dryer that are all provided.
+                        </p>
+                    </div>
+                    <div class="amenities_container">
+                        <h2>Amenities</h2>
+                        <ul>
+                            <li>
+                                <div class="amenities_grid">
+                                    <div class="icon_amenities ameni_tv"></div>
+                                    <p>TV</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="amenities_grid">
+                                    <div class="icon_amenities ameni_wifi"></div>
+                                    <p>Wifi</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reviews">
+                        <h2>1 Review</h2>
+                        <ul>
+                            <li>
+                                <div>
+                                    <h3 class="review_info">From Brianna Smith the 14th May 2018</h3>
+                                    <p class="review_text"> This place is beautiful. It is super super clean. James is quick at responding. Has basically anything you would need. Would definitely book again. </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="place_item">
+                    <div class = place_name>
+                        <h2>A Suite</h2>
+                        <div class="price_by_night">
+                            <p>$50</p> 
+                        </div>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">
+                            <div class="info_icon"></div>
+                            <p>3 Guests</p>
+                        </div>
+                        <div class="number_rooms">
+                            <div class="info_icon"></div>
+                            <p>1 Bedroom</p>
+                        </div>
+                        <div class="number_bathrooms">
+                            <div class="info_icon"></div>
+                            <p>1 Bathroom</p>
+                        </div>   
+                    </div>
+                    <div class="user">
+                        <p><b>Owner:</b> Emma Miller</p>
+                    </div>
+                    <div class="description">
+                        <p>Our Guest Suite is separated from the main house by a locked door and hallway, it is very private.
+                             The suite has a mini fridge, Keurig coffee machine, toaster oven and microwave.
+                             Includes 55" HDTV with HBO, Netflix, Hulu, Amazon and many new popular movies. 
+                             The Guest wing has its own roof deck and large patio including an outdoor grill, 
+                             with great views of the city and mountains surrounding Tucson. </p>
+                    </div>
+                    <div class="amenities_container">
+                        <h2>Amenities</h2>
+                        <ul>
+                            <li>
+                                <div class="amenities_grid">
+                                    <div class="icon_amenities ameni_tv"></div>
+                                    <p>TV</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="amenities_grid">
+                                    <div class="icon_amenities ameni_wifi"></div>
+                                    <p>Wifi</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reviews">
+                        <h2>2 Reviews</h2>
+                        <ul>
+                            <li>
+                                <div>
+                                    <h3 class="review_info">From Kenny Brown the 4th September 2018</h3>
+                                    <p class="review_text"> Great spot to rest. Super clean - bathroom has anything you need.
+                                         Very fluffy clean towels, and comfy bed. The host was super nice, she greeted me and was
+                                         very friendly and knowledgeable about Saguaro National Park. </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3 class="review_info">From Courtney Adams the 7th January 2017</h3>
+                                    <p class="review_text"> A host is really nice and the place is stylish and cozy. Thanks!</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+    </div>
+    <footer>
+        <p>Holberton School</p>
+    </footer>
+</body>
+</html>
